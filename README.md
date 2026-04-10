@@ -14,7 +14,7 @@
 
 ### 项目简介
 
-本项目是本科毕业设计，针对 Kinect V2 深度相机在**手臂自遮挡**场景下骨骼关节点定位不准确的问题，提出了一种基于深度图像特性的改进算法。
+本项目针对 Kinect V2 深度相机在**手臂自遮挡**场景下骨骼关节点定位不准确的问题，提出了一种基于深度图像特性的改进算法。
 
 **核心贡献：**
 
@@ -43,7 +43,7 @@ Kinect 采集深度图像 + 用户索引图像
 
 | 文件 | 说明 |
 |------|------|
-| `test.cpp` | **主程序**，包含完整的改进算法（人体提取、手臂分离、自遮挡判断、关节点定位、性能计时） |
+| `main.cpp` | **主程序**，包含完整的改进算法（人体提取、手臂分离、自遮挡判断、关节点定位、性能计时） |
 | `Depth_Information.cpp` | 在彩色图像上绘制 Kinect 原生骨架的参考程序 |
 | `markedCoordinate.cpp` | 人工标注工具，用于在保存的图像上手动点击标注关节点坐标 |
 | `norm_L2.cpp` | 误差计算工具，计算人工标注点与算法定位点之间的 L2 范数误差 |
@@ -92,7 +92,7 @@ Kinect 采集深度图像 + 用户索引图像
 
 ### Overview
 
-This project is an undergraduate thesis that addresses the inaccurate joint localization of Kinect V2's built-in skeleton tracking when **arm self-occlusion** occurs. An improved algorithm based on depth image characteristics is proposed.
+This project addresses the inaccurate joint localization of Kinect V2's built-in skeleton tracking when **arm self-occlusion** occurs. An improved algorithm based on depth image characteristics is proposed.
 
 **Key Contributions:**
 
@@ -121,7 +121,7 @@ Merge joints → Complete body skeleton
 
 | File | Description |
 |------|-------------|
-| `test.cpp` | **Main program** — full pipeline: body extraction, arm separation, occlusion detection, joint localization, performance timing |
+| `main.cpp` | **Main program** — full pipeline: body extraction, arm separation, occlusion detection, joint localization, performance timing |
 | `Depth_Information.cpp` | Reference program for drawing Kinect's native skeleton on color images |
 | `markedCoordinate.cpp` | Manual annotation tool for clicking joint positions on saved images |
 | `norm_L2.cpp` | Error calculation tool — computes L2 norm between manual annotations and algorithm outputs |
@@ -168,6 +168,3 @@ Under arm self-occlusion, the improved algorithm achieves an average hand joint 
 
 This project is for academic and educational purposes.
 
-### Author
-
-**Xiao Quansheng (肖全胜)** — Taiyuan University of Technology, Class of 2023

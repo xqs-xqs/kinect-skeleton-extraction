@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+Debug/
+Release/
+x64/
+x86/
+*.obj
+*.obj.enc
+*.pdb
+*.ilk
+*.log
+*.idb
+*.exe
+*.tlog/
+*.FileListAbsolute.txt
+*.user
+*.suo
+*.opensdf
+*.sdf
+*.ipch
+*.aps
+*.ncb
