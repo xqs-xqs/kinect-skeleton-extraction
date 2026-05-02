@@ -1,10 +1,27 @@
+<div align="center">
+        
 # Kinect-Skeleton-Extraction
+
+
+![C++](https://img.shields.io/badge/C%2B%2B-17-blue?logo=cplusplus&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.x-5C3EE8?logo=opencv&logoColor=white)
+![Kinect](https://img.shields.io/badge/Kinect_SDK-v2.0-0078D4?logo=microsoft&logoColor=white)
+![Visual Studio](https://img.shields.io/badge/Visual_Studio-2019+-5C2D91?logo=visualstudio&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white)
+![License](https://img.shields.io/badge/License-Academic-green)
+
+
+
+ **Improvement and Implementation of Skeleton Data Extraction Algorithm Based on Kinect Depth Information**
+
+
 
 ## 基于 Kinect 深度信息的骨骼数据提取算法的改进与实现
 
-**Improvement and Implementation of Skeleton Data Extraction Algorithm Based on Kinect Depth Information**
 
 [English](#english) | [中文](#中文)
+
+</div>
 
 ---
 
@@ -82,7 +99,7 @@ Kinect 采集深度图像 + 用户索引图像
 
 ### 实验结果
 
-改进算法在手臂自遮挡场景下，手部关节点定位误差平均约 3.2 像素（Kinect 原算法平均约 7.8 像素），定位准确率显著提升。详细实验数据参见论文第四章。
+改进算法在手臂自遮挡场景下，手部关节点定位误差平均约 3.2 像素（Kinect 原算法平均约 7.8 像素），定位准确率显著提升。
 
 ---
 
@@ -160,7 +177,7 @@ For optimal results, the following conditions should be met:
 
 ### Results
 
-Under arm self-occlusion, the improved algorithm achieves an average hand joint localization error of ~3.2 pixels, compared to ~7.8 pixels with Kinect's built-in algorithm. See Chapter 4 of the thesis for detailed experimental data.
+Under arm self-occlusion, the improved algorithm achieves an average hand joint localization error of ~3.2 pixels, compared to ~7.8 pixels with Kinect's built-in algorithm. 
 
 ---
 
