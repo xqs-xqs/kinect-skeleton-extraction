@@ -39,6 +39,14 @@
 
 2. **自遮挡手臂关节点提取** — 利用手臂与躯干之间的深度值差异提取自遮挡手臂，通过 Guo-Hall 图像细化算法获得手臂骨架，再借助肘部关节点的位置稳定性定位手部关节点。支持左手、右手及双手同时自遮挡三种情况。
 
+### 研究意义与创新点
+
+针对 Kinect V2 基于随机决策森林的骨骼跟踪在手臂自遮挡时手部关节点发生漂移的问题，本项目提出一种**不依赖模型重训、低算力的几何后处理方法**：在保留原生骨骼输出的基础上，利用"自遮挡手臂相对躯干离相机更近"的物理先验，从深度图中分离手臂，并经骨架细化与肘部锚定完成手部关节点重定位。其主要特点为：
+
+- **轻量可落地** — 不触及分类器训练，可实时运行，对硬件无额外要求；
+- **物理先验驱动、可解释** — 流水线各步均有明确的几何与成像依据，结果可追溯、可调试；
+- **量化验证闭环** — 自遮挡场景下手部关节点平均定位误差由约 7.8 像素降至约 3.2 像素。
+
 ### 算法流程
 
 ```
@@ -101,6 +109,10 @@ Kinect 采集深度图像 + 用户索引图像
 
 改进算法在手臂自遮挡场景下，手部关节点定位误差平均约 3.2 像素（Kinect 原算法平均约 7.8 像素），定位准确率显著提升。
 
+### 局限性与未来工作
+
+当前算法的躯干截取范围与深度分割阈值针对固定机位、固定测距的部署条件标定，以保证目标场景下的精度与稳定性。后续工作包括：依据肩、髋关节与躯干深度分布实现参数的场景自适应；扩大被试与姿态样本规模并引入统计显著性分析；沿手臂运动链联合优化腕、掌关节并将结果反投影至三维坐标系；以及与学习型姿态估计方法融合，兼顾效率、精度与泛化能力。
+
 ---
 
 <a id="english"></a>
@@ -116,6 +128,14 @@ This project addresses the inaccurate joint localization of Kinect V2's built-in
 1. **Foreground Human Body Extraction from Depth Images** — Combines Kinect's user index image (IBodyIndexFrame) with threshold segmentation to extract the human body region, followed by median filtering and morphological preprocessing.
 
 2. **Self-Occluded Arm Joint Extraction** — Leverages the depth difference between the arm and torso to isolate occluded arms, applies Guo-Hall image thinning to obtain the arm skeleton, and locates hand joints using the positional stability of elbow joints. Supports left-arm, right-arm, and both-arm occlusion scenarios.
+
+### Significance & Highlights
+
+To address the hand-joint drift of Kinect V2's random-decision-forest skeleton tracking under arm self-occlusion, this project proposes a **lightweight, retraining-free geometric post-processing method**. Building on the native skeleton output, it exploits the physical prior that a self-occluded arm is closer to the camera than the torso to segment the arm from the depth image, then relocates the hand joint via skeleton thinning and elbow anchoring. Key features:
+
+- **Lightweight and deployable** — no classifier retraining, runs in real time, no extra hardware required;
+- **Physically grounded and interpretable** — every stage has a clear geometric basis, making results traceable and debuggable;
+- **Closed-loop quantitative validation** — average hand-joint localization error under self-occlusion drops from ~7.8 px to ~3.2 px.
 
 ### Algorithm Pipeline
 
@@ -178,6 +198,10 @@ For optimal results, the following conditions should be met:
 ### Results
 
 Under arm self-occlusion, the improved algorithm achieves an average hand joint localization error of ~3.2 pixels, compared to ~7.8 pixels with Kinect's built-in algorithm. 
+
+### Limitations & Future Work
+
+The torso cropping range and depth segmentation threshold are currently calibrated for a fixed camera placement and subject distance, ensuring accuracy and stability in the target scenario. Future work includes: scene-adaptive parameterization driven by shoulder/hip joints and torso depth distribution; larger-scale validation across more subjects and poses with statistical significance analysis; joint optimization of the wrist and palm along the arm kinematic chain with reprojection to 3D coordinates; and integration with learning-based pose estimators to balance efficiency, accuracy, and generalization.
 
 ---
 
